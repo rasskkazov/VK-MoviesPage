@@ -1,5 +1,5 @@
 export enum paths {
   MAIN = "/",
-  TODO = "todo",
-  PRIVATE = "private",
+  MOVIES = "movies",
+  FAVORITES = "favorites",
 }

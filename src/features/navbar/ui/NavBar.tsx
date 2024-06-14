@@ -8,16 +8,10 @@ export const NavBar = () => {
     <nav className={classes.navbar}>
       <ul>
         <li>
-          <Link to={paths.MAIN}>Main</Link>
+          <Link to={paths.MOVIES}>Главная</Link>
         </li>
         <li>
-          <Link to={paths.TODO}>Todo</Link>
-        </li>
-        <li>
-          <Link to={"/nonexisting"}>Non existing</Link>
-        </li>
-        <li>
-          <Link to={paths.PRIVATE}>Private</Link>
+          <Link to={paths.FAVORITES}>Избранное</Link>
         </li>
       </ul>
     </nav>
