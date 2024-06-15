@@ -9,3 +9,11 @@ export const axiosInstanceKinop = axios.create({
     "X-API-KEY": API_TOKEN,
   },
 });
+
+export const axiosInstanceKinopV1 = axios.create({
+  baseURL: "https://api.kinopoisk.dev/v1",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-KEY": API_TOKEN,
+  },
+});
