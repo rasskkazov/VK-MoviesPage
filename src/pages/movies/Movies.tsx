@@ -1,16 +1,20 @@
 import { Outlet } from "react-router-dom";
 
-import { API_TOKEN } from "@/shared/api/token";
+import * as classes from "./Movies.module.scss";
+
+import { SplitCol, SplitLayout } from "@vkontakte/vkui";
 
 export const Movies = () => {
-  console.log(API_TOKEN);
-
   return (
-    <div className="main">
-      <div className="filters">Filters</div>
-      <div className="list">
-        <Outlet />
-      </div>
+    <div className={classes.movies}>
+      <SplitLayout center>
+        <SplitCol maxWidth="24rem" className={classes.movies__sidebar}>
+          Filters
+        </SplitCol>
+        <SplitCol maxWidth="140rem">
+          <Outlet />
+        </SplitCol>
+      </SplitLayout>
     </div>
   );
 };

@@ -1,0 +1,9 @@
+.movieList {
+  padding: 1.6rem;
+  border: 1px solid green;
+
+  &__grid {
+    gap: 1rem;
+    row-gap: 2.4rem;
+  }
+}
