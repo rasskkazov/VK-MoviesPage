@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import { Root, ErrorPage, Movies, Favorites, Main } from "@/pages";
+import { MovieList } from "@/widgets";
 import { paths } from "@/shared/constant/paths";
+import path from "path";
 
 export const router = createBrowserRouter([
   {
@@ -16,12 +18,21 @@ export const router = createBrowserRouter([
       {
         path: paths.MOVIES,
         element: <Movies />,
-        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "",
+            element: <MovieList />,
+          },
+          {
+            path: `${paths.PAGE}/:pageNumber`,
+            element: <MovieList />,
+          },
+        ],
       },
+
       {
         path: paths.FAVORITES,
         element: <Favorites />,
-        errorElement: <ErrorPage />,
       },
     ],
   },
