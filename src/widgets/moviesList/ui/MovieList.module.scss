@@ -6,4 +6,10 @@
     gap: 1rem;
     row-gap: 2.4rem;
   }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.4rem;
+  }
 }
