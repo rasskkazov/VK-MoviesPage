@@ -8,6 +8,6 @@ export type TMovie = {
   name: string;
   description: string;
   year: number;
-  poster: string;
+  poster: string | null;
   genres: TGenre[];
 };

@@ -1,21 +1,27 @@
 @import "@/shared/styles";
 
 .movie {
-  height: 36rem;
   color: $grey-darker;
 
   &__card {
-    width: 20rem;
-    margin: 1rem;
+    width: 16rem;
+    margin-bottom: 4px;
     overflow: hidden;
   }
 
   &__posterContainer {
-    height: 30rem;
+    height: 23rem;
   }
 
   &__poster {
     width: 100%;
     height: 100%;
+    object-fit: fill;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.8rem;
   }
 }
