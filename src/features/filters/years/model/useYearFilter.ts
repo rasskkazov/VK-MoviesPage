@@ -8,7 +8,7 @@ export const useYearFilter = () => {
   const decadesOptions: TSelectOptions = [];
   for (let i = 1990; i < new Date().getFullYear(); i += 10) {
     decadesOptions.push({
-      label: `${i}-тые`,
+      label: `${i}-ые`,
       value: i.toString(),
     });
   }
@@ -24,10 +24,11 @@ export const useYearFilter = () => {
   }
 
   return {
-    decadesOptions,
+    selectedYear,
+    setSelectedYear,
     yearsOptions,
     selectedDecade,
     setSelectedDecade,
-    setSelectedYear,
+    decadesOptions,
   };
 };
