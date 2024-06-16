@@ -1,10 +1,12 @@
-import { ChangeEvent, useState } from "react";
-
 import { CustomSelect, FormItem, Group } from "@vkontakte/vkui";
-import { TSelectOptions } from "@/shared/types/selectOptions";
 import { useYearFilter } from "../model/useYearFilter";
+import { UpdateFiltersAction } from "../../model/types";
 
-export const YearFilter = () => {
+export const YearFilter = ({
+  dispatch,
+}: {
+  dispatch: React.Dispatch<UpdateFiltersAction>;
+}) => {
   const {
     decadesOptions,
     yearsOptions,
@@ -13,6 +15,19 @@ export const YearFilter = () => {
     setSelectedYear,
   } = useYearFilter();
 
+  const onSelectDecade = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedDecade(e.target.value);
+    const newYearsFilterValue = `${Number(e.target.value)}-${
+      Number(e.target.value) + 9
+    }`;
+    dispatch({ type: "UPDATE_YEAR", payload: newYearsFilterValue });
+  };
+
+  const onSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedYear(e.target.value);
+    dispatch({ type: "UPDATE_YEAR", payload: e.target.value });
+  };
+
   return (
     <>
       <FormItem top="Период" htmlFor="decade">
@@ -20,7 +35,7 @@ export const YearFilter = () => {
           id="decade"
           placeholder="Не выбран"
           options={decadesOptions}
-          onChange={(e) => setSelectedDecade(e.target.value)}
+          onChange={onSelectDecade}
         />
       </FormItem>
       {selectedDecade && (
@@ -29,7 +44,7 @@ export const YearFilter = () => {
             id="year"
             placeholder="Не выбран"
             options={yearsOptions}
-            onChange={(e) => setSelectedYear(e.target.value)}
+            onChange={onSelectYear}
           />
         </FormItem>
       )}

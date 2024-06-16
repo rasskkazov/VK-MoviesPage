@@ -1,16 +1,25 @@
-import { useState } from "react";
-
-import { useGenreFilter } from "../model/useCheckboxFilter";
+import React, { useState } from "react";
 import { FormItem, ChipsSelect } from "@vkontakte/vkui";
+import { UpdateFiltersAction } from "../../model/types";
+import { useGenreFilter } from "../model/useGenreFilter";
+
 import { TSelectOptions } from "@/shared/types/selectOptions";
 
-export const GenreFilter = () => {
+export const GenreFilter = ({
+  dispatch,
+}: {
+  dispatch: React.Dispatch<UpdateFiltersAction>;
+}) => {
   const { genres, isLoading } = useGenreFilter();
-
-  const [selectedGenres, setSelectedGenres] = useState<TSelectOptions>([]);
 
   // const isLoading = true;
   // const genres: any[] = [];
+
+  const [selectedGenres, setSelectedGenres] = useState<TSelectOptions>([]);
+  const onSelect = (newSelectedGenres: TSelectOptions) => {
+    setSelectedGenres(newSelectedGenres);
+    dispatch({ type: "UPDATE_GENRES", payload: newSelectedGenres });
+  };
 
   const options: TSelectOptions = isLoading
     ? []
@@ -25,9 +34,9 @@ export const GenreFilter = () => {
         <ChipsSelect
           id="genres"
           value={selectedGenres}
-          onChange={setSelectedGenres}
+          onChange={onSelect}
           options={options}
-          placeholder="Жанры не выбраны"
+          placeholder="Не выбраны"
           emptyText="Загрузка жанров..."
         />
       </FormItem>
