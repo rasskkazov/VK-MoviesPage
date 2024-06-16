@@ -1,6 +1,6 @@
 import { TMovie } from "@/entities";
 import { axiosInstanceKinop } from "@/shared/api/axiosInstance";
-import { PaginationResponse } from "@/shared/api/types";
+import { PaginationResponse } from "@/shared/types/api";
 
 const getOptions = {
   method: "GET",

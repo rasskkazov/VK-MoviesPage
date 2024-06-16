@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { TMovie } from "@/entities";
 
 import { fetchMoviePage } from "./fetchMoviePage";
-import { PaginationResponse } from "@/shared/api/types";
+import { PaginationResponse } from "@/shared/types/api";
 import { paths } from "@/shared/constant/paths";
 
 export const useMovieList = (limit: number) => {
@@ -17,6 +17,7 @@ export const useMovieList = (limit: number) => {
       navigate(`/`);
       return;
     }
+
     navigate(`/${paths.MOVIES}/${paths.PAGE}/${newPage}`);
   };
 
@@ -24,5 +25,6 @@ export const useMovieList = (limit: number) => {
     queryKey: ["page", curPage],
     queryFn: ({ signal }) => fetchMoviePage(curPage, limit, signal),
   });
+
   return { data, isLoading, handlePageClick };
 };
