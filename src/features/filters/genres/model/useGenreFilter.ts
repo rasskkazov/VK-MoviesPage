@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { TGenres, fetchGenreData } from "./fetchGenreData";
 
-export const useCheckboxFilter = () => {
+export const useGenreFilter = () => {
   const [isLoading, setIsloading] = useState(true);
   const [genres, setGenres] = useState<TGenres>(null);
 
