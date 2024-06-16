@@ -13,13 +13,11 @@ export const useMovieList = (limit: number) => {
   const curPage = Number(pageNumber ?? "1");
 
   const handlePageClick = (newPage: number) => {
-    // if (newPage === 1) {
-    //   navigate(``, { replace: true });
-    //   return;
-    // }
-    navigate(`${paths.PAGE}/${newPage}`, { replace: true });
-    return;
-    // redirect(`${paths.PAGE}/${newPage}`);
+    if (newPage === 1) {
+      navigate(`/`);
+      return;
+    }
+    navigate(`/${paths.MOVIES}/${paths.PAGE}/${newPage}`);
   };
 
   const { data, isLoading } = useQuery<PaginationResponse<TMovie>>({

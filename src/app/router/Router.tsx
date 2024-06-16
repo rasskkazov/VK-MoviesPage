@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import { Root, ErrorPage, Movies, Favorites, Main } from "@/pages";
 import { MovieList } from "@/widgets";
 import { paths } from "@/shared/constant/paths";
-import path from "path";
 
 export const router = createBrowserRouter([
   {
