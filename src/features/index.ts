@@ -1,2 +1,4 @@
 export { NavBar } from "./navbar/ui/NavBar";
-export { CheckboxFilter } from "./filters/checkbox/ui/CheckboxFilter";
+export { GenreFilter } from "./filters/genres/ui/GenreFilter";
+export { YearFilter } from "./filters/years/ui/YearFilter";
+export { RatingFilter } from "./filters/rating/ui/RatingFilter";
