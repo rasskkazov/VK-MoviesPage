@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import qs from "qs";
 import { useQuery } from "@tanstack/react-query";
 import { fetchMoviePage } from "./fetchMoviePage";
@@ -7,13 +7,11 @@ import { prepareParams } from "../lib/prepareParams";
 
 import { TMovie } from "@/entities";
 import { PaginationResponse, QUERIES } from "@/shared/types/api";
+import { useQueryParams } from "@/shared/lib/useQueryParams";
 
 export const useMovieList = (limit: number) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
-
-  const queryString = location.search;
-  const rawQueryString = qs.parse(queryString, { ignoreQueryPrefix: true });
+  const rawQueryString = useQueryParams();
 
   const handlePageClick = (newPage: number) => {
     const newQuery = qs.stringify(
@@ -28,7 +26,7 @@ export const useMovieList = (limit: number) => {
   };
 
   useEffect(() => {
-    handlePageClick(1);
+    if (!rawQueryString[QUERIES.page]) handlePageClick(1);
   }, []);
 
   const params = prepareParams(rawQueryString);

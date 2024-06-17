@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import qs from "qs";
 import { fetchGenreData } from "./fetchGenreData";
-import { useLocation, useSearchParams } from "react-router-dom";
-import { QUERIES, UpdateFiltersAction } from "@/shared/types/api";
 
 import { TSelectOptions } from "@/shared/types/selectOptions";
-import qs from "qs";
+import { QUERIES, UpdateFiltersAction } from "@/shared/types/api";
 
 export const useGenreFilter = (
   dispatch: React.Dispatch<UpdateFiltersAction>

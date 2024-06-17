@@ -1,8 +1,9 @@
 import { FormEvent, useReducer } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import qs from "qs";
 
 import { QUERIES, UpdateFiltersAction } from "@/shared/types/api";
+import { useQueryParams } from "@/shared/lib/useQueryParams";
 
 type TMoviesListFilterState = {
   [QUERIES.genres]: string[];
@@ -36,15 +37,14 @@ export const useMovieListFilter = () => {
     [QUERIES.rating]: null,
   });
 
-  const location = useLocation();
-  const queryString = qs.parse(location.search, { ignoreQueryPrefix: true });
+  const params = useQueryParams();
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
 
     setSearchParams(
       qs.stringify(
-        { ...queryString, ...filterState },
+        { ...params, ...filterState, [QUERIES.page]: "1" },
         {
           arrayFormat: "repeat",
           skipNulls: true,

@@ -1,4 +1,4 @@
-import { CardGrid, Pagination, ScreenSpinner } from "@vkontakte/vkui";
+import { CardGrid, Pagination, ScreenSpinner, Title } from "@vkontakte/vkui";
 import { useMovieList } from "../model/useMovieList";
 import { MovieCard } from "@/entities";
 
@@ -15,6 +15,7 @@ export const MovieList = () => {
           {error.message}
         </ScreenSpinner>
       )} */}
+
       {!isLoading && !error && (
         <>
           <CardGrid size="l" className={classes.movieList__grid}>
@@ -28,14 +29,21 @@ export const MovieList = () => {
               />
             ))}
           </CardGrid>
-          <Pagination
-            className={classes.movieList__pagination}
-            navigationButtonsStyle="icon"
-            currentPage={data.page}
-            boundaryCount={1}
-            totalPages={data.pages}
-            onChange={handlePageClick}
-          />
+          {data.docs.length > 1 && (
+            <Pagination
+              className={classes.movieList__pagination}
+              navigationButtonsStyle="icon"
+              currentPage={data.page}
+              boundaryCount={1}
+              totalPages={data.pages}
+              onChange={handlePageClick}
+            />
+          )}
+          {data.docs.length < 1 && (
+            <Title style={{ textAlign: "center", color: "gray" }}>
+              По вашему запросу ничего не найдено
+            </Title>
+          )}
         </>
       )}
     </div>
