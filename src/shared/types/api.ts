@@ -15,3 +15,10 @@ export type UpdateFiltersAction =
       type: "UPDATE_YEAR" | "UPDATE_RATING";
       payload: string;
     };
+
+export const KinopQueries = {
+  page: "page",
+  genres: "genres.name",
+  year: "year",
+  rating: "rating.imdb",
+};

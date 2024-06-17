@@ -30,7 +30,7 @@ export const useGenreFilter = (
     setSelectedGenres(newSelectedGenres);
     dispatch({
       type: "UPDATE_GENRES",
-      payload: newSelectedGenres.map((genre) => genre.value),
+      payload: newSelectedGenres.map((genre) => genre.label),
     });
   };
   return { selectedGenres, genresOptions, onSelect };
