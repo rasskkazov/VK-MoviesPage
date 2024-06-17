@@ -11,7 +11,7 @@ const getOptions = {
 
 export const fetchMoviePage = (
   options: {
-    params: URLSearchParams;
+    params: qs.ParsedQs;
   },
   signal?: AbortSignal
 ) => {
@@ -19,6 +19,9 @@ export const fetchMoviePage = (
     .get<PaginationResponse<TMovie>>("movie", {
       ...getOptions,
       ...options,
+      paramsSerializer: {
+        indexes: null,
+      },
       signal,
     })
     .then((res) => res.data)
