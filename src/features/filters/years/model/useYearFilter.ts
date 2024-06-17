@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { UpdateFiltersAction } from "../../model/types";
 
+import { UpdateFiltersAction } from "@/shared/types/api";
 import { TSelectOptions } from "@/shared/types/selectOptions";
 
 function toFilterDecadeValue(year: string) {

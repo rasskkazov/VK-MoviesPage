@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormItem, ChipsSelect } from "@vkontakte/vkui";
-import { UpdateFiltersAction } from "../../model/types";
 import { useGenreFilter } from "../model/useGenreFilter";
 
-import { TSelectOptions } from "@/shared/types/selectOptions";
+import { UpdateFiltersAction } from "@/shared/types/api";
 
 export const GenreFilter = ({
   dispatch,

@@ -1,6 +1,6 @@
-import { UpdateFiltersAction } from "../../model/types";
-
 import { FormItem, Slider } from "@vkontakte/vkui";
+
+import { UpdateFiltersAction } from "@/shared/types/api";
 
 export const RatingFilter = ({
   dispatch,

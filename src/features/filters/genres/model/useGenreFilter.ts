@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchGenreData } from "./fetchGenreData";
-import { UpdateFiltersAction } from "../../model/types";
+import { UpdateFiltersAction } from "@/shared/types/api";
 
 import { TSelectOptions } from "@/shared/types/selectOptions";
 import { error } from "console";

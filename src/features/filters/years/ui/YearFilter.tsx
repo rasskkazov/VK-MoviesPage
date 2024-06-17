@@ -1,6 +1,7 @@
 import { CustomSelect, FormItem } from "@vkontakte/vkui";
 import { useYearFilter } from "../model/useYearFilter";
-import { UpdateFiltersAction } from "../../model/types";
+
+import { UpdateFiltersAction } from "@/shared/types/api";
 
 export const YearFilter = ({
   dispatch,
