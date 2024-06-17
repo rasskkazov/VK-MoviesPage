@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { FormEvent, useReducer } from "react";
 import { UpdateFiltersAction } from "@/features";
 
 type TMoviesListFilterState = {
@@ -28,7 +28,11 @@ export const useMovieListFilter = () => {
     rating: "",
   });
 
-  console.log(filterState);
+  const submit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log("Submti");
+  };
 
-  return { dispatch };
+  console.log(filterState);
+  return { dispatch, submit };
 };

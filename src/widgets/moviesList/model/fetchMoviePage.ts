@@ -11,20 +11,18 @@ const getOptions = {
 };
 
 export const fetchMoviePage = (
-  pageNumber: number,
-  limit: number,
+  options: {
+    params: {
+      page: number;
+      limit: number;
+    };
+  },
   signal?: AbortSignal
 ) => {
-  const params = {
-    params: {
-      page: pageNumber,
-      limit,
-    },
-  };
   return axiosInstanceKinop
     .get<PaginationResponse<TMovie>>("movie", {
       ...getOptions,
-      ...params,
+      ...options,
       signal,
     })
     .then((res) => res.data)

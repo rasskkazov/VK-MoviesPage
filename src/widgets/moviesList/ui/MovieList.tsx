@@ -12,11 +12,11 @@ export const MovieList = () => {
   return (
     <div className={classes.movieList}>
       {isLoading && <ScreenSpinner state="loading" />}
-      {error && (
+      {/* {error && (
         <ScreenSpinner state="error" title={error.message}>
           {error.message}
         </ScreenSpinner>
-      )}
+      )} */}
       {!isLoading && !error && (
         <>
           <CardGrid size="l" className={classes.movieList__grid}>
