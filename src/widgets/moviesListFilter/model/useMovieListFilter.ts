@@ -1,5 +1,5 @@
 import { FormEvent, useReducer } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import qs from "qs";
 
 import { QUERIES, UpdateFiltersAction } from "@/shared/types/api";
@@ -36,15 +36,21 @@ export const useMovieListFilter = () => {
     [QUERIES.rating]: null,
   });
 
+  const location = useLocation();
+  const queryString = qs.parse(location.search, { ignoreQueryPrefix: true });
+
   const submit = (e: FormEvent) => {
     e.preventDefault();
 
     setSearchParams(
-      qs.stringify(filterState, {
-        arrayFormat: "repeat",
-        skipNulls: true,
-        addQueryPrefix: false,
-      })
+      qs.stringify(
+        { ...queryString, ...filterState },
+        {
+          arrayFormat: "repeat",
+          skipNulls: true,
+          addQueryPrefix: false,
+        }
+      )
     );
   };
 

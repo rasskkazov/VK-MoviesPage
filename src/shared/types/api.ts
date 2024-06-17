@@ -31,6 +31,7 @@ export type UpdateFiltersAction =
 // };
 export enum QUERIES {
   page = "page",
+  limit = "limit",
   decade = "decade",
   genres = "genres.name",
   year = "year",
