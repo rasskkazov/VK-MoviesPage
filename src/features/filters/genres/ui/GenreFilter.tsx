@@ -11,21 +11,16 @@ export const GenreFilter = ({
 }) => {
   const { selectedGenres, genresOptions, onSelect } = useGenreFilter(dispatch);
 
-  // const isLoading = true;
-  // const genres: any[] = [];
-
   return (
-    <>
-      <FormItem htmlFor="genres" top="Жанры">
-        <ChipsSelect
-          id="genres"
-          value={selectedGenres}
-          onChange={onSelect}
-          options={genresOptions}
-          placeholder="Не выбраны"
-          emptyText="Загрузка жанров..."
-        />
-      </FormItem>
-    </>
+    <FormItem htmlFor="genres" top="Жанры">
+      <ChipsSelect
+        id="genres"
+        value={selectedGenres}
+        onChange={onSelect}
+        options={genresOptions}
+        placeholder="Не выбраны"
+        emptyText="Загрузка жанров..."
+      />
+    </FormItem>
   );
 };

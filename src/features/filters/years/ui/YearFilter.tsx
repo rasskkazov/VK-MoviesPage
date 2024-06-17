@@ -24,8 +24,9 @@ export const YearFilter = ({
           id="decade"
           placeholder="Не выбран"
           options={decadesOptions}
-          onChange={onSelectDecade}
+          onChange={(e) => onSelectDecade(e.target.value)}
           allowClearButton
+          value={selectedDecade}
         />
       </FormItem>
       {selectedDecade && (
@@ -34,8 +35,9 @@ export const YearFilter = ({
             id="year"
             placeholder="Не выбран"
             options={yearsOptions}
-            onChange={onSelectYear}
+            onChange={(e) => onSelectYear(e.target.value)}
             allowClearButton
+            value={selectedYear}
           />
         </FormItem>
       )}
