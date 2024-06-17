@@ -5,12 +5,19 @@ import { MovieCard } from "@/entities";
 import * as classes from "./MovieList.module.scss";
 
 export const MovieList = () => {
-  const { data, isLoading, handlePageClick } = useMovieList(50);
+  const { data, isLoading, handlePageClick, error } = useMovieList(50);
+
+  console.log("MY AEREROOR OID", error);
 
   return (
     <div className={classes.movieList}>
       {isLoading && <ScreenSpinner state="loading" />}
-      {!isLoading && (
+      {error && (
+        <ScreenSpinner state="error" title={error.message}>
+          {error.message}
+        </ScreenSpinner>
+      )}
+      {!isLoading && !error && (
         <>
           <CardGrid size="l" className={classes.movieList__grid}>
             {data.docs.map((movie) => (

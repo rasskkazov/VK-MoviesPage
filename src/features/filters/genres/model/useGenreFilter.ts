@@ -3,6 +3,7 @@ import { fetchGenreData } from "./fetchGenreData";
 import { UpdateFiltersAction } from "../../model/types";
 
 import { TSelectOptions } from "@/shared/types/selectOptions";
+import { error } from "console";
 
 export const useGenreFilter = (
   dispatch: React.Dispatch<UpdateFiltersAction>
@@ -10,14 +11,18 @@ export const useGenreFilter = (
   const [genresOptions, setGenresOptions] = useState<TSelectOptions>([]);
 
   useEffect(() => {
-    fetchGenreData().then((res) => {
-      setGenresOptions(
-        res.map((genre) => ({
-          value: genre.slug,
-          label: genre.name,
-        }))
-      );
-    });
+    fetchGenreData()
+      .then((res) => {
+        setGenresOptions(
+          res.map((genre) => ({
+            value: genre.slug,
+            label: genre.name,
+          }))
+        );
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   }, []);
 
   const [selectedGenres, setSelectedGenres] = useState<TSelectOptions>([]);

@@ -1,6 +1,7 @@
 import { TMovie } from "@/entities";
 import { axiosInstanceKinop } from "@/shared/api/axiosInstance";
 import { PaginationResponse } from "@/shared/types/api";
+import { error } from "console";
 
 const getOptions = {
   method: "GET",
@@ -26,5 +27,8 @@ export const fetchMoviePage = (
       ...params,
       signal,
     })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch((err) => {
+      throw err;
+    });
 };

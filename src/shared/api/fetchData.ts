@@ -21,7 +21,11 @@ export function fetchData<T>(
       ...options,
       signal,
     })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error(error.message);
+      throw error;
+    });
 }
 
 //Версии в апи отличаются?
@@ -36,5 +40,9 @@ export function fetchDataV1<T>(
       ...options,
       signal,
     })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error(error.message);
+      throw error;
+    });
 }

@@ -1,11 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
-
-import { TMovie } from "@/entities";
-
+import { useQuery } from "@tanstack/react-query";
 import { fetchMoviePage } from "./fetchMoviePage";
-import { PaginationResponse } from "@/shared/types/api";
+
 import { paths } from "@/shared/constant/paths";
+import { PaginationResponse } from "@/shared/types/api";
+import { TMovie } from "@/entities";
 
 export const useMovieList = (limit: number) => {
   const { pageNumber } = useParams();
@@ -14,17 +13,19 @@ export const useMovieList = (limit: number) => {
 
   const handlePageClick = (newPage: number) => {
     if (newPage === 1) {
-      navigate(`/`);
+      navigate("/");
       return;
     }
 
     navigate(`/${paths.MOVIES}/${paths.PAGE}/${newPage}`);
   };
 
-  const { data, isLoading } = useQuery<PaginationResponse<TMovie>>({
+  const { data, isLoading, error } = useQuery<PaginationResponse<TMovie>>({
     queryKey: ["page", curPage],
     queryFn: ({ signal }) => fetchMoviePage(curPage, limit, signal),
   });
 
-  return { data, isLoading, handlePageClick };
+  if (error) console.warn(error.message);
+
+  return { data, isLoading, handlePageClick, error };
 };
