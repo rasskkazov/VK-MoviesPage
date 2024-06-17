@@ -1,15 +1,32 @@
 import { useEffect, useState } from "react";
-import { TGenres, fetchGenreData } from "./fetchGenreData";
+import { fetchGenreData } from "./fetchGenreData";
+import { UpdateFiltersAction } from "../../model/types";
 
-export const useGenreFilter = () => {
-  const [isLoading, setIsloading] = useState(true);
-  const [genres, setGenres] = useState<TGenres>(null);
+import { TSelectOptions } from "@/shared/types/selectOptions";
+
+export const useGenreFilter = (
+  dispatch: React.Dispatch<UpdateFiltersAction>
+) => {
+  const [genresOptions, setGenresOptions] = useState<TSelectOptions>([]);
 
   useEffect(() => {
     fetchGenreData().then((res) => {
-      setGenres(res);
-      setIsloading(false);
+      setGenresOptions(
+        res.map((genre) => ({
+          value: genre.slug,
+          label: genre.name,
+        }))
+      );
     });
   }, []);
-  return { genres, isLoading };
+
+  const [selectedGenres, setSelectedGenres] = useState<TSelectOptions>([]);
+  const onSelect = (newSelectedGenres: TSelectOptions) => {
+    setSelectedGenres(newSelectedGenres);
+    dispatch({
+      type: "UPDATE_GENRES",
+      payload: newSelectedGenres.map((genre) => genre.value),
+    });
+  };
+  return { selectedGenres, genresOptions, onSelect };
 };

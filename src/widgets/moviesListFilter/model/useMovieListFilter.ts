@@ -1,9 +1,8 @@
 import { useReducer } from "react";
 import { UpdateFiltersAction } from "@/features";
-import { TSelectOptions } from "@/shared/types/selectOptions";
 
 type TMoviesListFilterState = {
-  genres: TSelectOptions;
+  genres: string[];
   year: string;
   rating: string;
 };

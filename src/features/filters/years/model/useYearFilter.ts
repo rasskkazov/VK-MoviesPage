@@ -1,7 +1,15 @@
-import { TSelectOptions } from "@/shared/types/selectOptions";
 import { useState } from "react";
+import { UpdateFiltersAction } from "../../model/types";
 
-export const useYearFilter = () => {
+import { TSelectOptions } from "@/shared/types/selectOptions";
+
+function toFilterDecadeValue(year: string) {
+  return `${Number(year)}-${Number(year) + 9}`;
+}
+
+export const useYearFilter = (
+  dispatch: React.Dispatch<UpdateFiltersAction>
+) => {
   const [selectedDecade, setSelectedDecade] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
 
@@ -14,6 +22,7 @@ export const useYearFilter = () => {
   }
 
   let yearsOptions: TSelectOptions = [];
+
   if (selectedDecade) {
     for (let i = Number(selectedDecade); i < Number(selectedDecade) + 10; i++) {
       yearsOptions.push({
@@ -23,12 +32,30 @@ export const useYearFilter = () => {
     }
   }
 
+  const onSelectDecade = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedDecade(e.target.value);
+    dispatch({
+      type: "UPDATE_YEAR",
+      payload: e.target.value ? toFilterDecadeValue(e.target.value) : "",
+    });
+  };
+
+  const onSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedYear(e.target.value);
+    dispatch({
+      type: "UPDATE_YEAR",
+      payload: e.target.value
+        ? e.target.value
+        : toFilterDecadeValue(selectedDecade),
+    });
+  };
+
   return {
     selectedYear,
-    setSelectedYear,
+    onSelectYear,
     yearsOptions,
     selectedDecade,
-    setSelectedDecade,
+    onSelectDecade,
     decadesOptions,
   };
 };

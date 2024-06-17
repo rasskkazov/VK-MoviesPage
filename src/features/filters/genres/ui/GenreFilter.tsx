@@ -10,23 +10,10 @@ export const GenreFilter = ({
 }: {
   dispatch: React.Dispatch<UpdateFiltersAction>;
 }) => {
-  const { genres, isLoading } = useGenreFilter();
+  const { selectedGenres, genresOptions, onSelect } = useGenreFilter(dispatch);
 
   // const isLoading = true;
   // const genres: any[] = [];
-
-  const [selectedGenres, setSelectedGenres] = useState<TSelectOptions>([]);
-  const onSelect = (newSelectedGenres: TSelectOptions) => {
-    setSelectedGenres(newSelectedGenres);
-    dispatch({ type: "UPDATE_GENRES", payload: newSelectedGenres });
-  };
-
-  const options: TSelectOptions = isLoading
-    ? []
-    : genres.map((genre) => ({
-        value: genre.slug,
-        label: genre.name,
-      }));
 
   return (
     <>
@@ -35,7 +22,7 @@ export const GenreFilter = ({
           id="genres"
           value={selectedGenres}
           onChange={onSelect}
-          options={options}
+          options={genresOptions}
           placeholder="Не выбраны"
           emptyText="Загрузка жанров..."
         />

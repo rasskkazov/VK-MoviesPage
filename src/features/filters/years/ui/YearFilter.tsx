@@ -1,10 +1,6 @@
-import { CustomSelect, FormItem, Group } from "@vkontakte/vkui";
+import { CustomSelect, FormItem } from "@vkontakte/vkui";
 import { useYearFilter } from "../model/useYearFilter";
 import { UpdateFiltersAction } from "../../model/types";
-
-function toFilterDecadeValue(year: string) {
-  return `${Number(year)}-${Number(year) + 9}`;
-}
 
 export const YearFilter = ({
   dispatch,
@@ -13,30 +9,12 @@ export const YearFilter = ({
 }) => {
   const {
     selectedYear,
-    setSelectedYear,
+    onSelectYear,
     yearsOptions,
     selectedDecade,
-    setSelectedDecade,
+    onSelectDecade,
     decadesOptions,
-  } = useYearFilter();
-
-  const onSelectDecade = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDecade(e.target.value);
-    dispatch({
-      type: "UPDATE_YEAR",
-      payload: e.target.value ? toFilterDecadeValue(e.target.value) : "",
-    });
-  };
-
-  const onSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedYear(e.target.value);
-    dispatch({
-      type: "UPDATE_YEAR",
-      payload: e.target.value
-        ? e.target.value
-        : toFilterDecadeValue(selectedDecade),
-    });
-  };
+  } = useYearFilter(dispatch);
 
   return (
     <>
