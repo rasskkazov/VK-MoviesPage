@@ -11,7 +11,7 @@ const getOptions = {
 
 export const fetchMoviePage = (
   options: {
-    params: Record<string, string | number>;
+    params: URLSearchParams;
   },
   signal?: AbortSignal
 ) => {
