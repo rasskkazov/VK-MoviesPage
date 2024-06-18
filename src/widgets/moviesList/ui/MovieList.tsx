@@ -27,12 +27,7 @@ export const MovieList = () => {
           >
             {data.docs.map((movie) => (
               <Link to={movie.id.toString()} key={movie.id}>
-                <MovieCard
-                  name={movie.name || movie.alternativeName}
-                  rating={movie.rating}
-                  year={movie.year}
-                  poster={movie.poster}
-                />
+                <MovieCard movieData={movie} />
               </Link>
             ))}
           </CardGrid>

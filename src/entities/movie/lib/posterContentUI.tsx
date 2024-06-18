@@ -2,7 +2,7 @@ import { Title } from "@vkontakte/vkui";
 import { TMovie } from "../types/type";
 
 export const posterContentUI = (
-  props: Pick<TMovie, "name" | "poster">,
+  props: TMovie,
   {
     imgClassName,
     altDivClassname,
@@ -20,7 +20,7 @@ export const posterContentUI = (
 
   return (
     <div className={altDivClassname}>
-      <Title level="3">{props.name}</Title>
+      <Title level="3">{props.name || props.alternativeName}</Title>
     </div>
   );
 };
