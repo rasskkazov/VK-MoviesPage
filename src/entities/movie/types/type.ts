@@ -5,7 +5,10 @@ type TPoster = {
 
 type TGenre = {
   name: string;
+  slug: string;
 };
+
+export type TGenres = TGenre[];
 
 export type TMovie = {
   rating: {
@@ -21,5 +24,5 @@ export type TMovie = {
   description: string;
   year: number;
   poster?: TPoster;
-  genres: TGenre[];
+  genres: TGenres;
 };
