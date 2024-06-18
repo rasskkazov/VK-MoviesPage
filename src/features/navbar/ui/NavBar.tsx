@@ -1,19 +1,13 @@
-import { Link } from "react-router-dom";
-import { paths } from "@/shared/constant/paths";
+import { NavListDesk } from "./NavListDesk";
 
 import * as classes from "./NavBar.module.scss";
+import { NavListMob } from "./NavListMob";
 
 export const NavBar = () => {
   return (
     <nav className={classes.navbar}>
-      <ul>
-        <li>
-          <Link to={paths.MOVIES}>Главная</Link>
-        </li>
-        <li>
-          <Link to={paths.FAVORITES}>Избранное</Link>
-        </li>
-      </ul>
+      <NavListDesk />
+      <NavListMob />
     </nav>
   );
 };

@@ -18,7 +18,11 @@ export const MovieList = () => {
 
       {!isLoading && !error && (
         <>
-          <CardGrid size="l" className={classes.movieList__grid}>
+          <CardGrid
+            size="l"
+            className={classes.movieList__grid}
+            style={{ justifyContent: "center" }}
+          >
             {data.docs.map((movie) => (
               <MovieCard
                 key={movie.id}

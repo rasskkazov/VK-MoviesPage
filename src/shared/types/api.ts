@@ -16,19 +16,6 @@ export type UpdateFiltersAction =
       payload: string | null;
     };
 
-// export const KinopQueries = {
-//   page: "page",
-//   genres: "genres.name",
-//   year: "year",
-//   rating: "rating.imdb",
-// };
-
-// export type KinopQueries = {
-//   page: string | null;
-//   "genres.name": string[];
-//   year: string | null;
-//   rating: string | null;
-// };
 export enum QUERIES {
   page = "page",
   limit = "limit",

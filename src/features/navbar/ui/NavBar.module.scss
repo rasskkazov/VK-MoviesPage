@@ -1,9 +1,44 @@
-.navbar {
-  font-weight: 700;
-  font-size: 1.4rem;
+@import "@/shared/styles";
 
-  ul {
+.navbar {
+  width: 100%;
+  font-weight: 700;
+  font-size: 2rem;
+
+  &__list {
+    gap: 1.4rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  &__list_desk {
     display: flex;
-    gap: 1rem;
+  }
+
+  &__list_mob {
+    display: none;
+  }
+
+  &__el_mob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $primary;
+  }
+
+  &__btn_mob {
+    color: $primary;
+    background-color: inherit;
+    border: none;
+  }
+
+  @include --mobile() {
+    &__list_mob {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &__list_desk {
+      display: none;
+    }
   }
 }

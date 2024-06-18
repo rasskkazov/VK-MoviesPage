@@ -1,7 +1,7 @@
 @import "@/shared/styles";
 
-.main {
-  display: flex;
-  justify-content: center;
+.container {
+  max-width: 118rem;
   min-height: 100vh;
+  margin: 0 auto;
 }

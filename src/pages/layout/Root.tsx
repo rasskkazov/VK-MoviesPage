@@ -4,11 +4,11 @@ import { Header } from "@/widgets";
 import * as classes from "./Root.module.scss";
 export const Root = () => {
   return (
-    <>
+    <div className={classes.container}>
       <Header />
-      <main className={classes.main}>
+      <main>
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
