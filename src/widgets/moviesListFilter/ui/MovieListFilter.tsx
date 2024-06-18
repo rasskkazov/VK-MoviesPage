@@ -1,13 +1,18 @@
-import { GenreFilter, RatingFilter, YearFilter } from "@/features";
-
 import { Button, FormItem } from "@vkontakte/vkui";
 import { useMovieListFilter } from "../model/useMovieListFilter";
 
-export const MovieListFilter = () => {
+import { GenreFilter, RatingFilter, YearFilter } from "@/features";
+
+export const MovieListFilter = (options: { modalBack?: VoidFunction }) => {
   const { dispatch, submit } = useMovieListFilter();
 
   return (
-    <form onSubmit={submit}>
+    <form
+      onSubmit={(e) => {
+        submit(e);
+        options.modalBack();
+      }}
+    >
       <GenreFilter dispatch={dispatch} />
       <YearFilter dispatch={dispatch} />
       <RatingFilter dispatch={dispatch} />

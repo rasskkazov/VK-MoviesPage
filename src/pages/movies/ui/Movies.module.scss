@@ -14,6 +14,8 @@
   }
 
   @include --mobile() {
+    padding-bottom: 5.8rem;
+
     &__sidebar {
       display: none;
     }

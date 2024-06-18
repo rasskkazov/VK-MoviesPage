@@ -1,6 +1,10 @@
-import { useAdaptivityConditionalRender } from "@vkontakte/vkui";
-import { MovieListFilter } from "@/widgets";
+import {
+  useAdaptivityConditionalRender,
+  useModalRootContext,
+} from "@vkontakte/vkui";
 import { ModalPage, ModalPageHeader, PanelHeaderClose } from "@vkontakte/vkui";
+
+import { MovieListFilter } from "@/widgets";
 
 const FILTERS_ID = "filters";
 
@@ -11,6 +15,7 @@ export const MovieListFilterModal = (modalBack: VoidFunction) => {
     <ModalPage
       id={FILTERS_ID}
       onClose={modalBack}
+      height={900}
       header={
         <ModalPageHeader
           before={
@@ -26,7 +31,7 @@ export const MovieListFilterModal = (modalBack: VoidFunction) => {
         </ModalPageHeader>
       }
     >
-      <MovieListFilter />
+      <MovieListFilter modalBack={modalBack} />
     </ModalPage>
   );
 
