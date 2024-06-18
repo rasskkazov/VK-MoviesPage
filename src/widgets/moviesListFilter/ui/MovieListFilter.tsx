@@ -10,7 +10,7 @@ export const MovieListFilter = (options: { modalBack?: VoidFunction }) => {
     <form
       onSubmit={(e) => {
         submit(e);
-        options.modalBack();
+        if (options.modalBack) options.modalBack();
       }}
     >
       <GenreFilter dispatch={dispatch} />
