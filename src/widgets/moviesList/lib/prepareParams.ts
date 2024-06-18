@@ -11,6 +11,6 @@ export const prepareParams = (params: qs.ParsedQs) => {
       years: `${decade}-${decade + 9}`,
     };
   }
-  delete res.decade;
+  // delete res.decade;
   return res;
 };

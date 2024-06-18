@@ -11,25 +11,28 @@ import { useQueryParams } from "@/shared/lib/useQueryParams";
 
 export const useMovieList = (limit: number) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const rawQueryString = useQueryParams();
+  const queryString = useQueryParams();
 
   const handlePageClick = (newPage: number) => {
     const newQuery = qs.stringify(
-      { ...rawQueryString, [QUERIES.page]: newPage, [QUERIES.limit]: limit },
+      { ...queryString, [QUERIES.page]: newPage, [QUERIES.limit]: limit },
       {
         arrayFormat: "repeat",
         skipNulls: true,
         addQueryPrefix: false,
       }
     );
+
     setSearchParams(newQuery);
   };
 
+  //go to 1-st page when open link without page specify
   useEffect(() => {
-    if (!rawQueryString[QUERIES.page]) handlePageClick(1);
+    if (!queryString[QUERIES.page]) handlePageClick(1);
   }, []);
 
-  const params = prepareParams(rawQueryString);
+  // make years from decades for API
+  const params = prepareParams(queryString);
 
   const { data, isLoading, error } = useQuery<PaginationResponse<TMovie>>({
     queryKey: ["page", params],
