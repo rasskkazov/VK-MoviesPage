@@ -34,6 +34,11 @@ export const MoviePageview = (props: { movieData: TMovie }) => {
         <Paragraph weight="3">В избранное</Paragraph>
         <div className="addToFavorites">To fav</div>
       </div>
+      <div className={classes.movie__rating}>
+        <h1>{props.movieData.rating.imdb}</h1>
+        &nbsp; &nbsp;
+        <span>на IMDB</span>
+      </div>
 
       <div className={classes.movie__genres}>
         <ChipsInput
