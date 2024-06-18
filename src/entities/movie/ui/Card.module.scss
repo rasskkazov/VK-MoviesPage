@@ -35,4 +35,16 @@
     text-align: center;
     word-wrap: break-word;
   }
+
+  @include --mobile() {
+    &__card {
+      min-width: 14rem;
+      max-width: 14rem;
+      margin-bottom: 2px;
+    }
+
+    &__posterContainer {
+      height: 20rem;
+    }
+  }
 }

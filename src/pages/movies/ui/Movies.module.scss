@@ -1,0 +1,25 @@
+@import "@/shared/styles";
+
+.movies {
+  background-color: inherit;
+
+  &__sidebar {
+    padding: 1.6rem;
+  }
+
+  &__subNavMob {
+    display: none;
+    gap: 1.6rem;
+    padding: 1.6rem;
+  }
+
+  @include --mobile() {
+    &__sidebar {
+      display: none;
+    }
+
+    &__subNavMob {
+      display: flex;
+    }
+  }
+}
