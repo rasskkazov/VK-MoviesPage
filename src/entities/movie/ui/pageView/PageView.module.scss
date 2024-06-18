@@ -9,8 +9,8 @@
 
   &__poster {
     grid-area: 1 / 1 / 3 / 2;
-    border: 1px solid $grey-darker;
     border-radius: 0.8rem;
+    box-shadow: 2px 1px 2px 1px $grey;
   }
 
   &__title {
