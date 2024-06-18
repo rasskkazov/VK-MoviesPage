@@ -9,25 +9,6 @@ import { QUERIES, UpdateFiltersAction } from "@/shared/types/api";
 export const useGenreFilter = (
   dispatch: React.Dispatch<UpdateFiltersAction>
 ) => {
-  // УДАЛИТЬ НИЖЕ
-  const genresOptions1: TSelectOptions = [
-    {
-      value: "1",
-      label: "1",
-    },
-    {
-      value: "2",
-      label: "2",
-    },
-    {
-      value: "3",
-      label: "3",
-    },
-    {
-      value: "4",
-      label: "4",
-    },
-  ];
   const [genresOptions, setGenresOptions] = useState<TSelectOptions>([]);
   const [selectedGenres, setSelectedGenres] = useState<TSelectOptions>([]);
   const location = useLocation();
@@ -44,8 +25,6 @@ export const useGenreFilter = (
       })
       .catch((error) => {
         console.error(error.message);
-        // УДАЛИТЬ НИЖЕ
-        setGenresOptions(genresOptions1);
       });
   }, []);
 

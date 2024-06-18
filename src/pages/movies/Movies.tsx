@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import * as classes from "./Movies.module.scss";
 
 import { SplitCol, SplitLayout } from "@vkontakte/vkui";
-import { MovieListFilter } from "@/widgets";
+import { MovieList, MovieListFilter } from "@/widgets";
 
 export const Movies = () => {
   return (
@@ -13,7 +13,7 @@ export const Movies = () => {
           <MovieListFilter />
         </SplitCol>
         <SplitCol maxWidth="140rem">
-          <Outlet />
+          <MovieList />
         </SplitCol>
       </SplitLayout>
     </div>
