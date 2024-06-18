@@ -8,7 +8,7 @@ export const prepareParams = (params: qs.ParsedQs) => {
   if (isNaN(years) && decade) {
     res = {
       ...params,
-      years: `${decade}-${decade + 9}`,
+      [QUERIES.year]: `${decade}-${decade + 9}`,
     };
   }
   // delete res.decade;
