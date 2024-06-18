@@ -1,0 +1,11 @@
+.subinfo {
+  border: 1px solid pink;
+
+  &__top {
+    border: 1px solid green;
+  }
+
+  &__bot {
+    border: 1px solid green;
+  }
+}

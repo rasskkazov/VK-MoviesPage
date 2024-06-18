@@ -1,0 +1,20 @@
+.movie {
+  display: flex;
+  padding: 3.2rem;
+
+  &__info {
+    border: 1px solid green;
+  }
+
+  &__title {
+    border: 1px solid green;
+  }
+
+  &__description {
+    border: 1px solid green;
+  }
+
+  &__subinfo {
+    border: 1px solid green;
+  }
+}

@@ -4,13 +4,13 @@
   color: $grey-darker;
 
   &__card {
-    min-width: 16rem;
-    max-width: 16rem;
     margin-bottom: 4px;
     overflow: hidden;
   }
 
   &__posterContainer {
+    min-width: 16rem;
+    max-width: 16rem;
     height: 23rem;
   }
 
@@ -38,12 +38,12 @@
 
   @include --mobile() {
     &__card {
-      min-width: 14rem;
-      max-width: 14rem;
       margin-bottom: 2px;
     }
 
     &__posterContainer {
+      min-width: 14rem;
+      max-width: 14rem;
       height: 20rem;
     }
   }

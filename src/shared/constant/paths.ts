@@ -3,4 +3,5 @@ export enum paths {
   FAVORITES = "favorites",
   MOVIES = "movies",
   PAGE = "page",
+  ERROR = "error",
 }

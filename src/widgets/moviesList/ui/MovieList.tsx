@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import { CardGrid, Pagination, ScreenSpinner, Title } from "@vkontakte/vkui";
 import { useMovieList } from "../model/useMovieList";
-import { MovieCard } from "@/entities";
 
+import { MovieCard } from "@/entities";
 import * as classes from "./MovieList.module.scss";
+import { paths } from "@/shared/constant/paths";
 
 export const MovieList = () => {
   const { data, isLoading, handlePageClick, error } = useMovieList(50);
@@ -24,13 +26,14 @@ export const MovieList = () => {
             style={{ justifyContent: "center" }}
           >
             {data.docs.map((movie) => (
-              <MovieCard
-                key={movie.id}
-                name={movie.name || movie.alternativeName}
-                rating={movie.rating}
-                year={movie.year}
-                poster={movie.poster}
-              />
+              <Link to={movie.id.toString()} key={movie.id}>
+                <MovieCard
+                  name={movie.name || movie.alternativeName}
+                  rating={movie.rating}
+                  year={movie.year}
+                  poster={movie.poster}
+                />
+              </Link>
             ))}
           </CardGrid>
           {data.docs.length > 1 && (
