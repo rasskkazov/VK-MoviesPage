@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { ScreenSpinner } from "@vkontakte/vkui";
 import { useMoviePage } from "../model/useMoviePage";
 
 import { MoviePageview } from "@/entities";
@@ -9,7 +10,7 @@ export const Movie = () => {
 
   return (
     <>
-      {isLoading && <div>Зарузка ...</div>}
+      {isLoading && <ScreenSpinner></ScreenSpinner>}
       {!isLoading && <MoviePageview movieData={movieData} />}
     </>
   );

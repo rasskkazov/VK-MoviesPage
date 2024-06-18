@@ -1,20 +1,77 @@
-.movie {
-  display: flex;
-  padding: 3.2rem;
+@import "@/shared/styles";
 
-  &__info {
-    border: 1px solid green;
+.movie {
+  display: grid;
+  grid-template-rows: 0.3fr 0.7fr;
+  grid-template-columns: 16rem 0.6fr 0.4fr;
+  padding: 3.2rem;
+  column-gap: 3.2rem;
+
+  &__poster {
+    grid-area: 1 / 1 / 3 / 2;
+    border: 1px solid $grey-darker;
+    border-radius: 0.8rem;
   }
 
   &__title {
-    border: 1px solid green;
+    grid-area: 1 / 2 / 2 / 3;
+
+    h1 {
+      display: inline;
+    }
+
+    span {
+      color: $grey-darker;
+      font-size: 1.5rem;
+    }
   }
 
   &__description {
-    border: 1px solid green;
+    grid-area: 2 / 2 / 3 / 3;
   }
 
-  &__subinfo {
-    border: 1px solid green;
+  &__toFav {
+    display: flex;
+    grid-area: 1 / 3 / 2 / 4;
+  }
+
+  &__genres {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+
+  @include --mobile() {
+    display: grid;
+    grid-gap: 1.6rem 3.2rem;
+    grid-template-rows: 20rem 2rem 0.1fr 0.1fr;
+    grid-template-columns: 14rem 1fr;
+    padding: 2.4rem 2.4rem 6.8rem;
+
+    &__poster {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &__title {
+      grid-area: 1 / 2 / 2 / 3;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      span {
+        font-size: 1.4rem;
+      }
+    }
+
+    &__description {
+      grid-area: 4 / 1 / 5 / 3;
+    }
+
+    &__toFav {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    &__genres {
+      grid-area: 3 / 1 / 4 / 3;
+    }
   }
 }
