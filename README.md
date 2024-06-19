@@ -4,6 +4,7 @@
 
 ```bash
 git clone https://github.com/rasskkazov/VK-MoviesPage.git
+cd ./VK-MoviesPage
 npm i
 ```
 
