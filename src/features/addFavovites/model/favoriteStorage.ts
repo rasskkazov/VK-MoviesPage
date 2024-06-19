@@ -6,7 +6,7 @@ export const useFavoriteStorage = () => {};
 
 class FavoriteStorage {
   constructor() {
-    if (!this.getFavorites().length) {
+    if (!localStorage.getItem(FAVORITE_MOVIES)) {
       localStorage.setItem(FAVORITE_MOVIES, JSON.stringify([]));
     }
   }
