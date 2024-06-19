@@ -1,9 +1,13 @@
-# docker build -t react-starter .
-# docker run -d -p 80:80 --name react-container react-starter
+# docker build --build-arg TOKEN=<your_token> -t vk-movies .
+# docker run -d -p 3000:80 --name vk-movies-container vk-movies
 
 FROM node:alpine as build
 WORKDIR /app
 COPY . .
+
+ARG TOKEN
+ENV TOKEN=$TOKEN
+
 RUN npm install
 RUN npm run build:prod
 
