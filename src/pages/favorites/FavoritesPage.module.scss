@@ -1,0 +1,14 @@
+@import "@/shared/styles";
+
+.favorite {
+  padding: 3.2rem;
+
+  &__grid {
+    gap: 1rem;
+    row-gap: 2.4rem;
+  }
+
+  @include --mobile() {
+    padding: 1.6rem 1.6rem 5.8rem;
+  }
+}

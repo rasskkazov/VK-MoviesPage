@@ -15,12 +15,12 @@ class FavoriteStorage {
     localStorage.setItem(FAVORITE_MOVIES, JSON.stringify(movies));
   }
 
-  private getFavorites(): TMovie[] {
-    return JSON.parse(localStorage.getItem(FAVORITE_MOVIES));
-  }
-
   private getFavoriteMovieById(id: number) {
     return this.getFavorites().find((favoriteMovie) => favoriteMovie.id === id);
+  }
+
+  getFavorites(): TMovie[] {
+    return JSON.parse(localStorage.getItem(FAVORITE_MOVIES));
   }
 
   addFavoriteMovie(newMovie: TMovie) {
