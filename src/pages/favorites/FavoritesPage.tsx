@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CardGrid } from "@vkontakte/vkui";
+import { CardGrid, Title } from "@vkontakte/vkui";
 
 import { favoriteMovieStorage } from "@/features/addFavovites/model/favoriteStorage";
 import { MovieCard } from "@/entities";
@@ -10,6 +10,7 @@ export const Favorites = () => {
   const data = favoriteMovieStorage.getFavorites();
   return (
     <div className={classes.favorite}>
+      {!data.length && <Title>Пока что тут ничего нет</Title>}
       <CardGrid
         size="l"
         style={{ justifyContent: "center" }}
