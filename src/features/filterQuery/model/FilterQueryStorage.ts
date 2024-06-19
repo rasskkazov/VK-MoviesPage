@@ -12,12 +12,16 @@ class FilterQueryStorage {
     this.query = qs.parse(newQueryString, { ignoreQueryPrefix: true });
   }
 
-  getQuery() {
+  getQueryString() {
+    // return this.query;
     return qs.stringify(this.query, {
       arrayFormat: "repeat",
       skipNulls: true,
       addQueryPrefix: false,
     });
+  }
+  getQueryObject() {
+    return this.query;
   }
 
   setQueryParameter(parameterName: string, value: string | string[]) {
