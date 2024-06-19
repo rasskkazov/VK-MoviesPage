@@ -5,8 +5,12 @@ import { posterContentUI } from "../../lib/posterContentUI";
 
 import * as classes from "./PageView.module.scss";
 import * as cardClasses from "../card/Card.module.scss";
+import { ReactNode } from "react";
 
-export const MoviePageview = (props: { movieData: TMovie }) => {
+export const MoviePageview = (props: {
+  movieData: TMovie;
+  featureSlot?: { caption: string; element: ReactNode };
+}) => {
   const posterContent = posterContentUI(props.movieData, {
     imgClassName: cardClasses.movie__poster,
     altDivClassname: cardClasses.movie__altImage,
@@ -30,9 +34,13 @@ export const MoviePageview = (props: { movieData: TMovie }) => {
         <Text>{props.movieData.description}</Text>
       </div>
 
-      <div className={classes.movie__toFav}>
-        <Paragraph weight="3">В избранное</Paragraph>
-        <div className="addToFavorites">To fav</div>
+      <div className={classes.movie__featureSlot}>
+        {props.featureSlot && (
+          <>
+            <Paragraph weight="3">{props.featureSlot.caption || ""}</Paragraph>
+            {props.featureSlot.element}
+          </>
+        )}
       </div>
       <div className={classes.movie__rating}>
         <h1>{props.movieData.rating.imdb}</h1>
