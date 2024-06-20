@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchMoviePage } from "./fetchMoviePage";
+import { prepareParams } from "../lib/prepareParams";
 
 import { filterQueryStorage } from "@/features";
 import { TMovie } from "@/entities";
@@ -21,12 +23,20 @@ export const useMovieList = (limit: number) => {
     setSearchParams(newURL);
   };
 
+  useEffect(() => {
+    if (!filterQueryStorage.getQueryParameter(QUERIES.page)) {
+      handlePageClick(1);
+    }
+  }, []);
+
+  const preparedParams = prepareParams(params);
+
   const { data, isLoading, error } = useQuery<PaginationResponse<TMovie>>({
     queryKey: ["page", params],
     queryFn: ({ signal }) =>
       fetchMoviePage(
         {
-          params,
+          params: preparedParams,
         },
         signal
       ),

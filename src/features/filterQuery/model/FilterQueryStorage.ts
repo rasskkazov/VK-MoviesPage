@@ -13,13 +13,13 @@ class FilterQueryStorage {
   }
 
   getQueryString() {
-    // return this.query;
     return qs.stringify(this.query, {
       arrayFormat: "repeat",
       skipNulls: true,
       addQueryPrefix: false,
     });
   }
+
   getQueryObject() {
     return this.query;
   }

@@ -1,6 +1,7 @@
 import { TMovie } from "@/entities";
 import { axiosInstanceKinop } from "@/shared/api/axiosInstance";
 import { PaginationResponse } from "@/shared/types/api";
+import QueryString from "qs";
 
 const getOptions = {
   method: "GET",
@@ -11,7 +12,8 @@ const getOptions = {
 
 export const fetchMoviePage = (
   options: {
-    params: qs.ParsedQs;
+    // params: qs.ParsedQs;
+    params: QueryString.ParsedQs;
   },
   signal?: AbortSignal
 ) => {

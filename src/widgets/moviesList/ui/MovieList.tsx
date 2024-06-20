@@ -4,19 +4,20 @@ import { useMovieList } from "../model/useMovieList";
 
 import { MovieCard } from "@/entities";
 import * as classes from "./MovieList.module.scss";
-import { paths } from "@/shared/constant/paths";
+import { observer } from "mobx-react";
+import { filterQueryStorage } from "@/features";
 
-export const MovieList = () => {
+export const MovieList = observer(() => {
   const { data, isLoading, handlePageClick, error } = useMovieList(50);
 
   return (
     <div className={classes.movieList}>
       {isLoading && <ScreenSpinner state="loading" />}
-      {error && (
+      {/* {error && (
         <ScreenSpinner state="error" title={error.message}>
           {error.message}
         </ScreenSpinner>
-      )}
+      )} */}
 
       {!isLoading && !error && (
         <>
@@ -50,4 +51,4 @@ export const MovieList = () => {
       )}
     </div>
   );
-};
+});

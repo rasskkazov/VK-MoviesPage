@@ -1,58 +1,19 @@
-import { FormEvent, useReducer } from "react";
+import { FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
-import qs from "qs";
+import { filterQueryStorage } from "@/features";
 
-import { QUERIES, UpdateFiltersAction } from "@/shared/types/api";
-import { useQueryParams } from "@/shared/lib/useQueryParams";
-
-type TMoviesListFilterState = {
-  [QUERIES.genres]: string[];
-  [QUERIES.decade]: string | null;
-  [QUERIES.year]: string | null;
-  [QUERIES.rating]: string | null;
-};
-
-const reducer = (
-  state: TMoviesListFilterState,
-  action: UpdateFiltersAction
-) => {
-  switch (action.type) {
-    case "UPDATE_GENRES":
-      return { ...state, [QUERIES.genres]: action.payload };
-    case "UPDATE_DECADE":
-      return { ...state, [QUERIES.decade]: action.payload };
-    case "UPDATE_YEAR":
-      return { ...state, [QUERIES.year]: action.payload };
-    case "UPDATE_RATING":
-      return { ...state, [QUERIES.rating]: action.payload };
-  }
-};
+import { QUERIES } from "@/shared/types/api";
 
 export const useMovieListFilter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [filterState, dispatch] = useReducer(reducer, {
-    [QUERIES.genres]: [],
-    [QUERIES.decade]: null,
-    [QUERIES.year]: null,
-    [QUERIES.rating]: null,
-  });
-
-  const params = useQueryParams();
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
 
-    setSearchParams(
-      qs.stringify(
-        { ...params, ...filterState, [QUERIES.page]: "1" },
-        {
-          arrayFormat: "repeat",
-          skipNulls: true,
-          addQueryPrefix: false,
-        }
-      )
-    );
+    filterQueryStorage.setQueryParameter(QUERIES.page, "1");
+    const newURL = new URLSearchParams(filterQueryStorage.getQueryString());
+    setSearchParams(newURL);
   };
 
-  return { dispatch, submit };
+  return { submit };
 };
