@@ -1,9 +1,9 @@
+import { useState } from "react";
+import { Button } from "@vkontakte/vkui";
 import { Icon24Favorite, Icon24FavoriteOutline } from "@vkontakte/icons";
+import { favoriteMovieStorage } from "../model/favoriteStorage";
 
 import { TMovie } from "@/entities";
-import { Button } from "@vkontakte/vkui";
-import { favoriteMovieStorage } from "../model/favoriteStorage";
-import { useState } from "react";
 
 export const AddFavorites = (props: { movieData: TMovie }) => {
   const [isFavorite, setIsfavorite] = useState(

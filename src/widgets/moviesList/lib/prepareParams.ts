@@ -1,5 +1,6 @@
-import { QUERIES } from "@/shared/types/api";
 import QueryString from "qs";
+
+import { QUERIES } from "@/shared/types/api";
 
 export const prepareParams = (params: QueryString.ParsedQs) => {
   const decade = Number(params[QUERIES.decade]);

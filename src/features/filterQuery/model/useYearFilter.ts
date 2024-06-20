@@ -3,8 +3,8 @@ import { filterQueryStorage } from "./FilterQueryStorage";
 import { yearOptionsFromDecade } from "../lib/yearsOptionsFromDecade";
 import { decadesOptionsFromDecade } from "../lib/decadesOptionsFromDecade";
 
-import { TSelectOptions } from "@/shared/types/selectOptions";
 import { QUERIES } from "@/shared/types/api";
+import { TSelectOptions } from "@/shared/types/selectOptions";
 
 let decadesOptions: TSelectOptions = decadesOptionsFromDecade(1990);
 

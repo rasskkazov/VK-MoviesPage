@@ -3,8 +3,8 @@ import { CardGrid, Title } from "@vkontakte/vkui";
 
 import { favoriteMovieStorage } from "@/features/addFavovites/model/favoriteStorage";
 import { MovieCard } from "@/entities";
-import * as classes from "./FavoritesPage.module.scss";
 import { paths } from "@/shared/constant/paths";
+import * as classes from "./FavoritesPage.module.scss";
 
 export const Favorites = () => {
   const data = favoriteMovieStorage.getFavorites();

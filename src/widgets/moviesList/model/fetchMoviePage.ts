@@ -1,7 +1,8 @@
+import QueryString from "qs";
+
 import { TMovie } from "@/entities";
 import { axiosInstanceKinop } from "@/shared/api/axiosInstance";
 import { PaginationResponse } from "@/shared/types/api";
-import QueryString from "qs";
 
 const getOptions = {
   method: "GET",

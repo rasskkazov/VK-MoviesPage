@@ -3,8 +3,8 @@ import { fetchGenreData } from "../api/fetchGenreData";
 import { filterQueryStorage } from "./FilterQueryStorage";
 
 import { genreMapper } from "@/entities";
-import { TSelectOptions } from "@/shared/types/selectOptions";
 import { QUERIES } from "@/shared/types/api";
+import { TSelectOptions } from "@/shared/types/selectOptions";
 
 export const useGenreFilter = () => {
   const [genreOptions, setGenresOptions] = useState<TSelectOptions>([]);

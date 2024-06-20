@@ -1,11 +1,10 @@
+import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { CardGrid, Pagination, ScreenSpinner, Title } from "@vkontakte/vkui";
 import { useMovieList } from "../model/useMovieList";
 
 import { MovieCard } from "@/entities";
 import * as classes from "./MovieList.module.scss";
-import { observer } from "mobx-react";
-import { filterQueryStorage } from "@/features";
 
 export const MovieList = observer(() => {
   const { data, isLoading, handlePageClick, error } = useMovieList(50);

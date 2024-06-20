@@ -1,10 +1,9 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { Footnote, IconButton } from "@vkontakte/vkui";
+import { Footnote } from "@vkontakte/vkui";
 import { Icon24LogoVkVideoOutline, Icon24StarsOutline } from "@vkontakte/icons";
 
 import { paths } from "@/shared/constant/paths";
-
 import * as classes from "./NavBar.module.scss";
 
 export const NavListMob = () => {

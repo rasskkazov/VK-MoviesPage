@@ -1,11 +1,11 @@
-import { ChipsInput, Title, Text, Paragraph } from "@vkontakte/vkui";
+import { ReactNode } from "react";
+import { ChipsInput, Text, Paragraph } from "@vkontakte/vkui";
 import { TMovie } from "../../types/type";
 import { genreMapper } from "../../api/genreMapper";
 import { posterContentUI } from "../../lib/posterContentUI";
 
 import * as classes from "./PageView.module.scss";
 import * as cardClasses from "../card/Card.module.scss";
-import { ReactNode } from "react";
 
 export const MoviePageview = (props: {
   movieData: TMovie;

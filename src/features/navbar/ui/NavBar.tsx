@@ -1,7 +1,7 @@
 import { NavListDesk } from "./NavListDesk";
+import { NavListMob } from "./NavListMob";
 
 import * as classes from "./NavBar.module.scss";
-import { NavListMob } from "./NavListMob";
 
 export const NavBar = () => {
   return (

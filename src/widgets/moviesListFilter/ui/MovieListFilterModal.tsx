@@ -1,7 +1,4 @@
-import {
-  useAdaptivityConditionalRender,
-  useModalRootContext,
-} from "@vkontakte/vkui";
+import { useAdaptivityConditionalRender } from "@vkontakte/vkui";
 import { ModalPage, ModalPageHeader, PanelHeaderClose } from "@vkontakte/vkui";
 
 import { MovieListFilter } from "@/widgets";

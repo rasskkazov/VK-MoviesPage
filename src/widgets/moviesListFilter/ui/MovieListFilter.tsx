@@ -2,13 +2,7 @@ import { observer } from "mobx-react";
 import { Button, FormItem } from "@vkontakte/vkui";
 import { useMovieListFilter } from "../model/useMovieListFilter";
 
-import {
-  GenreFilter,
-  RatingFilter,
-  YearFilter,
-  filterQueryStorage,
-} from "@/features";
-import { FormEvent } from "react";
+import { GenreFilter, RatingFilter, YearFilter } from "@/features";
 
 export const MovieListFilter = observer(
   (options: { modalBack?: VoidFunction }) => {

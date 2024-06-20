@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@vkontakte/vkui";
 import { Icon24LogoVkVideoOutline, Icon24StarsOutline } from "@vkontakte/icons";
 

@@ -1,9 +1,8 @@
+import { Card, Div, Popover, Text } from "@vkontakte/vkui";
 import { posterContentUI } from "../../lib/posterContentUI";
 import { TMovie } from "../../types/type";
 
 import * as classes from "./Card.module.scss";
-
-import { Card, Div, Popover, Text, Title } from "@vkontakte/vkui";
 
 export const MovieCard = (props: { movieData: TMovie }) => {
   const posterContent = posterContentUI(props.movieData, {

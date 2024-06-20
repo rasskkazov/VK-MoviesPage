@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchMovie } from "../api/fetchMovie";
-import { TMovie } from "@/entities";
 import { useNavigate } from "react-router-dom";
+import { fetchMovie } from "../api/fetchMovie";
+
+import { TMovie } from "@/entities";
 import { paths } from "@/shared/constant/paths";
 
 export const useMoviePage = (id: number) => {

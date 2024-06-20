@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
-import { filterQueryStorage } from "@/features";
 
+import { filterQueryStorage } from "@/features";
 import { QUERIES } from "@/shared/types/api";
 
 export const useMovieListFilter = () => {
