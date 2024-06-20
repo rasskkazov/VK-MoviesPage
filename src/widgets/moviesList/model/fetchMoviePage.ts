@@ -12,7 +12,6 @@ const getOptions = {
 
 export const fetchMoviePage = (
   options: {
-    // params: qs.ParsedQs;
     params: QueryString.ParsedQs;
   },
   signal?: AbortSignal

@@ -13,11 +13,11 @@ export const MovieList = observer(() => {
   return (
     <div className={classes.movieList}>
       {isLoading && <ScreenSpinner state="loading" />}
-      {/* {error && (
+      {error && (
         <ScreenSpinner state="error" title={error.message}>
           {error.message}
         </ScreenSpinner>
-      )} */}
+      )}
 
       {!isLoading && !error && (
         <>
@@ -38,7 +38,7 @@ export const MovieList = observer(() => {
               navigationButtonsStyle="icon"
               currentPage={data.page}
               boundaryCount={1}
-              totalPages={data.pages}
+              totalPages={data.pages - 1}
               onChange={handlePageClick}
             />
           )}

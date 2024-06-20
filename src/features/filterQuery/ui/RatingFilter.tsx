@@ -1,6 +1,5 @@
 import { FormItem, Slider } from "@vkontakte/vkui";
 
-import { UpdateFiltersAction } from "@/shared/types/api";
 import { useRatingFilter } from "../model/useRatingFilter";
 
 const MIN_RATING = 0;
